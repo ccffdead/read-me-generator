@@ -9,7 +9,7 @@ const questions = [
     {
 
 
-    // Enter your project title, please.
+        // Enter your project title, please.
 
 
         type: 'input',
@@ -231,16 +231,23 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) { 
+function writeToFile(fileName, data) {
     fs.writeFile(`./dist/$[fileName]`, data, err => {
-        if(err) {
+        if (err) {
             throw err
         };
         console.log('Your README file has been completed; you can locate it in the dist folder.')
     });
 }
 // TODO: Create a function to initialize app
-function init() { }
+function init() {
+    return inquierer.prompt(questions);
+};
 
 // Function call to initialize app
-init();
+init()
+    .then(answers => generateMarkdown(answers))
+    .then(generatedFile => writeToFile('ReadME.md', generatedFile))
+    .catch(err => {
+        console.log(err);
+    })

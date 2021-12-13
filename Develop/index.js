@@ -231,8 +231,14 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) { }
-
+function writeToFile(fileName, data) { 
+    fs.writeFile(`./dist/$[fileName]`, data, err => {
+        if(err) {
+            throw err
+        };
+        console.log('Your README file has been completed; you can locate it in the dist folder.')
+    });
+}
 // TODO: Create a function to initialize app
 function init() { }
 

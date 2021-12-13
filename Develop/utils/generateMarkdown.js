@@ -37,9 +37,18 @@ const renderToc = contentsArr => {
   return dataList;
 };
 
+//Creates a function that returns installation instructions
+const renderInstall = install => {
+  if(install) {
+    return `To use this project please install the following:\`\`\` ${install} \`\`\``
+  } else {
+    return '';
+  }
+};
+
 // TODO: Create a function that returns the license link
 
-function renderLicenseLink(license) {
+function renderLicense(license) {
   if (license) {
     return `This is licensed under ${license} license.`;
   } else {

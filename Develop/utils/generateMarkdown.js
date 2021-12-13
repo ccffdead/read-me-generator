@@ -39,8 +39,8 @@ const renderToc = contentsArr => {
 
 //Creates a function that returns installation instructions
 const renderInstall = install => {
-  if(install) {
-    return `To use this project please install the following:\`\`\` ${install} \`\`\``
+  if (install) {
+    return `To use this project, please install the following:  ${install}`
   } else {
     return '';
   }
@@ -106,31 +106,31 @@ function generateMarkdown(data) {
   let rmContents = '';
   const sectionArr = [
     {
-      header: 'License',
+      header: 'License: ',
       content: renderLicense(license)
     },
     {
-      header: 'Installation',
+      header: 'Installation: ',
       content: renderInstall(data.install)
     },
     {
-      header: 'Use',
+      header: 'Use: ',
       content: renderUse(data.use)
     },
     {
-      header: 'Built With',
+      header: 'Built With: ',
       content: renderBuilt(data['built'])
     },
     {
-      header: 'Contact',
+      header: 'Contact: ',
       content: renderContact(data.contact, repository, github)
     },
     {
-      header: 'Test',
+      header: 'Test: ',
       content: renderTest(data.test)
     },
     {
-      header: 'Contribution',
+      header: 'Contribution: ',
       content: data.contribution
     },
   ];
@@ -138,12 +138,18 @@ function generateMarkdown(data) {
   //Forms Content Section
 
   sectionArr.forEach((sectionData) => {
-    if (sectionData.content && sectionData.header === 'Table of Contents') {
-      readmeData += `### ${sectionData.header}${sectionData.content}`;
-    } else if (sectionData.content) {
-      rmContents += `## ${sectionData.header}${sectionData.content}`;
-    }
-  })
+      if(sectionData.content && sectionData.header === 'Table of Contents') {
+        readmeData += `### ${sectionData.header}
+  ${sectionData.content}
+  
+  `
+      } else if (sectionData.content) {
+        rmContents += `## ${sectionData.header}
+  ${sectionData.content}
+  
+  `;
+      }
+    })
 
   return `# ${title}
 [![Issues](https://img.shields.io/github/issues/${github}/${repository

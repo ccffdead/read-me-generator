@@ -37,9 +37,19 @@ const renderToc = contentsArr => {
   return dataList;
 };
 
-
 // TODO: Create a function that returns the license link
-// If there is no license, return an empty string
+
+function renderLicense(license) {
+  if(license) {
+    return `This is licensed under ${license} license.`;
+  } else {
+    
+  // If there is no license, return an empty string
+
+    return '';
+  }
+}
+
 function renderLicenseLink(license) {}
 
 // TODO: Create a function that returns the license section of README

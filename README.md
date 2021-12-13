@@ -29,7 +29,7 @@ This project allows users to generate custom README files for their projects fro
   If you have any further questions, please contact me at ccffdead@gmail.com. You can also find any addtional files at (https://github.com/read-me-generator/ccffdead). Thanks!
   
   ## Test: 
-  To use our applictaion install ``` Make sure to install all files before running the script. ``` and run `node index.js` from your terminal.
+  To use our applictaion, run ``` npm install ``` and run `node index.js` from your terminal.
   
   ## Contribution: 
   Improve upon the product!

@@ -65,15 +65,28 @@ const renderBuilt = built => {
   };
 };
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
+//Creates a function that returns use instructions
 
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title}
+const renderUse = (use) => {
+  return `${use}`
+};
 
-`;
-}
+//Creates a function that returns how to test the app
 
-module.exports = generateMarkdown;
+const renderTest = test => {
+  if(test) {
+    return `To use our applictaion install \`\`\` ${test} \`\`\` and run \`node index.js\` from your terminal.`
+  } else {
+    return '';
+  }
+};
+
+//Creates a function that returns contact info
+const renderContact = (email, github, repository) => {
+  if (email) {
+    return `If you have any further questions, please contact me at ${email}. You can also find any addtional files at (https://github.com/${github}/${repository}). Thanks!`
+  } else {
+    return '';
+  }
+};
+

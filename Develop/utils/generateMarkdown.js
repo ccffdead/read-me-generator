@@ -39,7 +39,7 @@ const renderToc = contentsArr => {
 
 // TODO: Create a function that returns the license link
 
-function renderLicense(license) {
+function renderLicenseLink(license) {
   if(license) {
     return `This is licensed under ${license} license.`;
   } else {
@@ -48,9 +48,22 @@ function renderLicense(license) {
 
     return '';
   }
-}
+};
 
-function renderLicenseLink(license) {}
+//Creates a function that returns what the application was built with
+
+const renderBuilt = built => {
+  let all = '';
+
+  if(built) {
+    built.forEach(item => {
+      all += ` *${item}`
+    });
+    return `${all}`;
+  } else {
+    return '';
+  };
+};
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
